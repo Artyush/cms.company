@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Models\Company\CompanyContract;
+use App\Models\Company\CompanyManager;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +25,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->app->bind(CompanyContract::class, CompanyManager::class);
     }
 }
